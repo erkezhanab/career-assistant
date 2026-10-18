@@ -1,0 +1,66 @@
+export const PROGRAMMING_LANGUAGES = [
+  'JavaScript',
+  'Python',
+  'Java',
+  'C#',
+  'PHP',
+  'TypeScript',
+  'Ruby',
+  'Go',
+  'Swift',
+  'Kotlin',
+  'Rust',
+  'Scala',
+  'C++',
+  'C',
+  'Objective-C',
+  'Dart',
+  'R',
+  'MATLAB',
+  'Shell',
+  'PowerShell',
+];
+
+export const CITIES = [
+  'Астана',
+  'Алматы',
+  'Шымкент',
+  'Караганда',
+  'Актобе',
+  'Тараз',
+  'Павлодар',
+  'Усть-Каменогорск',
+  'Семей',
+  'Костанай',
+  'Петропавловск',
+  'Уральск',
+  'Атырау',
+  'Актау',
+  'Кызылорда',
+];
+
+
+export const JOB_POSITIONS = [
+  'Frontend разработчик',
+  'Backend разработчик',
+  'Fullstack разработчик',
+  'DevOps инженер',
+  'Data Scientist',
+  'Data Analyst',
+  'ML инженер',
+  'Android разработчик',
+  'iOS разработчик',
+  'QA инженер',
+  'Системный аналитик',
+  'Project Manager',
+  'Product Manager',
+  'UI/UX дизайнер',
+  'Бизнес-аналитик',
+];
+
+export const EXPERIENCE_LEVELS = [
+  'Нет опыта',
+  '1-3 года',
+  '3-6 лет',
+  'Более 6 лет',
+];

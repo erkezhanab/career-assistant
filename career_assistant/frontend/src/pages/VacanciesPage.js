@@ -72,12 +72,14 @@ const VacanciesPage = () => {
     try {
       setLoading(true);
       const response = await vacanciesAPI.getVacancies();
-      setVacancies(response.data);
-      setInitialVacancies(response.data);
-      toast.success(`Загружено ${response.data.length} вакансий`);
+      const data = Array.isArray(response.data) ? response.data : [];
+      setVacancies(data);
+      setInitialVacancies(data);
     } catch (error) {
       console.error('Error loading vacancies:', error);
       toast.error('Ошибка загрузки вакансий');
+      setVacancies([]);
+      setInitialVacancies([]);
     } finally {
       setLoading(false);
     }
@@ -102,8 +104,16 @@ const handleSearch = async () => {
     console.log('Sending search payload:', payload); // для отладки
 
     const response = await vacanciesAPI.searchVacancies(payload);
-    setVacancies(response.data);
-    toast.success(`Найдено ${response.data.length} вакансий`);
+
+    if (Array.isArray(response.data)) {
+      setVacancies(response.data);
+      toast.success(`Найдено ${response.data.length} вакансий`);
+    } else {
+      // Бэкенд вернул не массив, а объект-сообщение
+      // (например, { message: '...', suggestions: [...] } если ничего не найдено)
+      setVacancies([]);
+      toast.info(response.data?.message || 'Вакансии не найдены');
+    }
   } catch (error) {
     console.error('Search error:', error.response || error);
     const errorMsg = error.response?.data?.error || 
